@@ -8,7 +8,10 @@ Currently, Excel-to-PPT only supports one slide template per transformation. If 
 
 ## Usage
 The ideal way to use this tool would be to define the slide template first.
-![Screenshot of the base template without annotations](/assets/images/electrocat.png)
+![Screenshot of the base template without annotations](/assets/ShapeTemplate.png)
+
+Each shape in your slide template that you wish to be populated with content from your excel workbook should contain a unique annotation. In our sample workbook, these keys are illustrated with %symbols.
+![Screenshot of the base template with annotations](/assets/ShapeAnnotations.png)
 
 
 
