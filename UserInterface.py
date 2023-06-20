@@ -58,12 +58,14 @@ class GUI:
             print("need file type")
             return
 
+    
     def getFilePath(self, ft: str) -> str:
         return filedialog.askopenfilename(
                 title = "Open a file to upload",
                 filetypes=ft
             )
     
+
     def submit(self) -> str:
         if not self.excelFilePath and not self.pptFilePath:
             messagebox.showerror("File Selection Incomplete", "Please select both files before submitting.")
