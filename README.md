@@ -3,6 +3,23 @@
 ## Description
 Excel-to-PPT is a tool written in Python for simplifying the process of building PowerPoint slides based on an Excel workbook. In this repo, you'll find the source code and two templates, one for your Excel content and one for your slide template.
 
+## Installation
+- Clone the repository to your local machine
+  `git clone https://github.com/RichardFFrank/Excel-to-PPT.git`
+
+- Install the requirements
+  `pip3 install -r requirements.txt`
+
+- Manually start the User Interface
+  `python3 startup.py`
+
+If you would prefer to have your own executable for future use, you can do so by creating a .exe using the following command:
+
+`pyinstaller --name "Excel-to-PPT" --windowed startup.py`
+
+
+Once complete, the executable will be located in the /dist/ folder in the current repository. 
+
 ## Usage
 1. The ideal way to use this tool would be to define the slide templates first.
 
