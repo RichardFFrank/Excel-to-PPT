@@ -1,9 +1,8 @@
 from types import TracebackType
 from typing import Callable, Any
-
 from openpyxl import load_workbook
 from Transformations.Classes import Slide
-from Transformations.Mapping import SLIDE_ID, CONTENT_LOCATION, CONTENT
+from Transformations.Mapping import SLIDE_ID, SLIDE_TYPE, CONTENT_LOCATION, CONTENT
 
 
 SLIDES_TO_POPULATE = {}
@@ -28,7 +27,7 @@ def parse_excel(filePath: str) -> dict[Any, Any] | Callable[[TracebackType | Non
             if row[SLIDE_ID] in SLIDES_TO_POPULATE.keys():
                 SLIDES_TO_POPULATE[row[SLIDE_ID]].add(row[CONTENT_LOCATION], row[CONTENT])
             else:
-                slide = Slide(row[SLIDE_ID])
+                slide = Slide(row[SLIDE_ID], row[SLIDE_TYPE])
                 slide.add(row[CONTENT_LOCATION], row[CONTENT])
                 SLIDES_TO_POPULATE[slide.slide_id] = slide
         return SLIDES_TO_POPULATE

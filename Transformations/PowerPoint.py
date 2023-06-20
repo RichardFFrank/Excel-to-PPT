@@ -5,18 +5,23 @@ from Transformations.Classes import Slide
 
 def populateSlides(contentDict: dict, filePath: str) -> str:
     prs = Presentation(filePath)
-
-    # since we have the template as the first slide (index = 0), we use index 1 as our starting point.
+    
+    offset = len(prs.slides)-1
+    
     idx = 1
 
     while contentDict:
+
+        currSlide = contentDict.get(idx)
+
         # create a blank copy based on our template
-        slideCopy(prs)
-        buildNewSlide(contentDict.get(idx), prs.slides[idx])
+        slideCopy(prs, int(currSlide.slide_type))
+        
+        buildNewSlide(contentDict.get(idx), prs.slides[offset+idx])
         contentDict.pop(idx)
         idx += 1
 
-    outputFileName = "PopulatedSlides.pptx"
+    outputFileName = "./Assets/PopulatedSlides.pptx"
     prs.save(outputFileName)
 
     return outputFileName
@@ -47,8 +52,8 @@ def buildNewSlide(slideToBuild: Slide, blankSlide: Slide) -> bool:
     return True
 
 
-def slideCopy(prs: Presentation) -> Slide:
-    slide_to_copy = prs.slides[0]
+def slideCopy(prs: Presentation, templateIdx: int) -> Slide:
+    slide_to_copy = prs.slides[templateIdx - 1]
     slide_layout = prs.slide_layouts.get_by_name("blank")
 
     new_slide = prs.slides.add_slide(slide_layout)

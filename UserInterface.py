@@ -41,10 +41,10 @@ class GUI:
 
     def selectFile(self, selection) -> str:
         excelFileTypes = [("Excel files", ".xlsx .xls")]
-        pptFIleTypes = [("PowerPoint files", ".ppt .pptx")]
+        pptFileTypes = [("PowerPoint files", ".ppt .pptx")]
 
         if selection == "PPT":
-            self.pptFilePath = self.getFilePath(pptFIleTypes)
+            self.pptFilePath = self.getFilePath(pptFileTypes)
             if self.pptFilePath:
                 self.pptFileLabelText.set(f"Selected file: {self.pptFilePath}")
             
@@ -71,10 +71,10 @@ class GUI:
             try: 
                 contentDict = parse_excel(filePath=self.excelFilePath)
                 self.outputFilePath.set(f"Completed slides saved as: {populateSlides(contentDict, filePath=self.pptFilePath)}")
-            except FileNotFoundError:
-                messagebox.showerror(message=FileNotFoundError.with_traceback)
-            except TimeoutError:
-                messagebox.showerror(TimeoutError.with_traceback)
+            except FileNotFoundError as FNF:
+                messagebox.showerror(message=FNF.with_traceback)
+            except TimeoutError as TE:
+                messagebox.showerror(message=TE.with_traceback)
 
 
 
