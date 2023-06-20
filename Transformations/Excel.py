@@ -1,11 +1,15 @@
-from openpyxl import Workbook, worksheet, load_workbook
-from classes import Slide
-from mapping import SLIDE_ID, CONTENT_LOCATION, CONTENT
+from types import TracebackType
+from typing import Callable, Any
+
+from openpyxl import load_workbook
+from Transformations.Classes import Slide
+from Transformations.Mapping import SLIDE_ID, CONTENT_LOCATION, CONTENT
 
 
 SLIDES_TO_POPULATE = {}
 
-def parse_excel(filePath: str) -> dict:
+
+def parse_excel(filePath: str) -> dict[Any, Any] | Callable[[TracebackType | None], Any]:
     """
     The parse excel function parses the active workbook (we default to the first sheet in the workbook).
 
@@ -13,7 +17,7 @@ def parse_excel(filePath: str) -> dict:
     We populate a dictionary of PlacementID:Content and return it to our main function.
     """
     try:
-        workbook = load_workbook(filePath)    
+        workbook = load_workbook(filePath)
         sheet = workbook.active
 
         print(f"Parsing workbook '{sheet.title}'")
@@ -28,11 +32,6 @@ def parse_excel(filePath: str) -> dict:
                 slide.add(row[CONTENT_LOCATION], row[CONTENT])
                 SLIDES_TO_POPULATE[slide.slide_id] = slide
         return SLIDES_TO_POPULATE
-    
+
     except FileNotFoundError:
         return FileNotFoundError.with_traceback
-
-
-
-if __name__ == "__main__":
-    parse_excel()

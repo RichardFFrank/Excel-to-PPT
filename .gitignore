@@ -1,9 +1,8 @@
 __pycache__
 bin
 lib
-build
-dist/Excel-to-PPT.app/
-dist/Excel-to-PPT/
 .DS_Store
 .gitattributes
 .vscode/launch.json
+pyvenv.cfg
+.idea/

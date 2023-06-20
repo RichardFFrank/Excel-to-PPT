@@ -1,5 +1,5 @@
-from Excel import parse_excel
-from PowerPoint import populateSlides
+from Transformations.Excel import parse_excel
+from Transformations.PowerPoint import populateSlides
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
