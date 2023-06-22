@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+__pychache__/
+bin/
+lib/
+
+*.pyc
+Assets/.DS_Store
+.gitattributes
+.DS_Store
