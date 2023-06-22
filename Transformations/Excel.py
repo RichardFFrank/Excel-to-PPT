@@ -19,7 +19,6 @@ def parse_excel(filePath: str) -> dict[Any, Any] | Callable[[TracebackType | Non
         workbook = load_workbook(filePath)
         sheet = workbook.active
 
-        print(f"Parsing workbook '{sheet.title}'")
         # iterate over all rows in the workbook
         # we use min_row=2 to skip the header rows.
         for row in sheet.iter_rows(min_row=2, values_only=True):

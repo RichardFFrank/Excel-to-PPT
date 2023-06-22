@@ -1,0 +1,8 @@
+INSTRUCTIONS="Select the template file of your powerpoint and the excel file to parse using the buttons below."
+EXCEL_LABEL="Select Excel File"
+PPT_LABEL="Select PowerPoint File"
+FILE_NOT_SELECTED="No file selected."
+SUBMIT_BUTTON="Press to perform transformation."
+ERROR_TITLE="File Selection Incomplete"
+ERROR_TEXT="Please select both files before submitting."
+TITLE_HEADLINE="Excel to PPT"

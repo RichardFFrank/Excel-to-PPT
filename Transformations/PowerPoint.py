@@ -1,6 +1,7 @@
 from pptx import Presentation
 from copy import deepcopy
 from Transformations.Classes import Slide
+from datetime import datetime
 
 
 def populateSlides(contentDict: dict, filePath: str) -> str:
@@ -20,8 +21,8 @@ def populateSlides(contentDict: dict, filePath: str) -> str:
         buildNewSlide(contentDict.get(idx), prs.slides[offset+idx])
         contentDict.pop(idx)
         idx += 1
-
-    outputFileName = "./Assets/PopulatedSlides.pptx"
+    
+    outputFileName = f"./Assets/populatedslides-{datetime.now().strftime('%d-%m-%Y-%H-%M')}.pptx"
     prs.save(outputFileName)
 
     return outputFileName
