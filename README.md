@@ -21,6 +21,8 @@ If you would prefer to have your own executable for future use, you can do so by
 Once complete, the executable will be located in the /dist/ folder in the current repository. 
 
 ## Usage
+To start, the required Excel and PowerPoint templates are located in the ./Assets directory. If you're copying and pasting slides to the template, make sure that the master slides are deleted and that the master slide in the template is empty.
+
 1. The ideal way to use this tool would be to define the slide templates first.
 
 ![Screenshot of the base template without annotations](./Assets/ScreenshotOfShapeTemplate.png)
